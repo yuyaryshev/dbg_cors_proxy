@@ -1,12 +1,42 @@
 lockfileVersion: 5.3
 
 specifiers:
+  minimist: ^1.2.5
+  prettier: ^2.4.1
+  web-proxy-sniffer: ^1.1.0
   yuyaryshev-cors-anywhere: ^0.4.4
 
 dependencies:
+  minimist: 1.2.5
+  web-proxy-sniffer: 1.1.0
   yuyaryshev-cors-anywhere: 0.4.4
 
+devDependencies:
+  prettier: 2.4.1
+
 packages:
+
+  /@types/node/16.11.6:
+    resolution: {integrity: sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==}
+    dev: false
+
+  /@types/pem/1.9.6:
+    resolution: {integrity: sha512-IC67SxacM9fxEi/w7hf98dTun83OwUMeLMo1NS2gE0wdM9MHeg73iH/Pp9nB02OUCQ7Zb2UuKE/IpFCmQw9jxw==}
+    dependencies:
+      '@types/node': 16.11.6
+    dev: false
+
+  /charenc/0.0.2:
+    resolution: {integrity: sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=}
+    dev: false
+
+  /crypt/0.0.2:
+    resolution: {integrity: sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs=}
+    dev: false
+
+  /es6-promisify/6.1.1:
+    resolution: {integrity: sha512-HBL8I3mIki5C1Cc9QjKUenHtnG0A5/xA8Q/AllRcfiwl2CZFXGK7ddBiCoRwAix4i2KxcQfjtIVcrVbB3vbmwg==}
+    dev: false
 
   /eventemitter3/1.2.0:
     resolution: {integrity: sha1-HIaZHYFq0eUEdQ5zh0Ik7PO+xQg=}
@@ -20,12 +50,68 @@ packages:
       requires-port: 0.0.1
     dev: false
 
+  /is-buffer/1.1.6:
+    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
+    dev: false
+
+  /isexe/2.0.0:
+    resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
+    dev: false
+
+  /md5/2.3.0:
+    resolution: {integrity: sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==}
+    dependencies:
+      charenc: 0.0.2
+      crypt: 0.0.2
+      is-buffer: 1.1.6
+    dev: false
+
+  /minimist/1.2.5:
+    resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
+    dev: false
+
+  /os-tmpdir/1.0.2:
+    resolution: {integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /pem/1.14.4:
+    resolution: {integrity: sha512-v8lH3NpirgiEmbOqhx0vwQTxwi0ExsiWBGYh0jYNq7K6mQuO4gI6UEFlr6fLAdv9TPXRt6GqiwE37puQdIDS8g==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      es6-promisify: 6.1.1
+      md5: 2.3.0
+      os-tmpdir: 1.0.2
+      which: 2.0.2
+    dev: false
+
+  /prettier/2.4.1:
+    resolution: {integrity: sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
   /proxy-from-env/0.0.1:
     resolution: {integrity: sha1-snxJRunm1dutt1mKZDXTAUxM/Uk=}
     dev: false
 
   /requires-port/0.0.1:
     resolution: {integrity: sha1-S0QUQR2d98hVmV3YmajHiilRwW0=}
+    dev: false
+
+  /web-proxy-sniffer/1.1.0:
+    resolution: {integrity: sha512-eLUjR4RcSrYOqroWOcg9uJLjiGQ7Ow7m08ShuCQ838jgUJP1whdDSKeyJfXU3ahmO8JjBZKn9ZfJEGLOpXqlTA==}
+    dependencies:
+      '@types/pem': 1.9.6
+      pem: 1.14.4
+    dev: false
+
+  /which/2.0.2:
+    resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
+    engines: {node: '>= 8'}
+    hasBin: true
+    dependencies:
+      isexe: 2.0.0
     dev: false
 
   /yuyaryshev-cors-anywhere/0.4.4:

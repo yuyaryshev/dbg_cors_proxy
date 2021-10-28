@@ -1,12 +1,10 @@
 // Listen on a specific host via the HOST environment variable
-var host = process.env.HOST || "0.0.0.0";
+const host = process.env.HOST || "0.0.0.0";
 // Listen on a specific port via the PORT environment variable
-const argsCopy = [...process.argv];
-const maybePort = argsCopy.pop();
-const maybePortSpecifier = argsCopy.pop();
-var port = ["-p","-port"].includes(maybePortSpecifier)? +maybePort: process.env.PORT || 8081;
+const cmdArgs = require('minimist')(process.argv.slice(2));
+const port = cmdArgs["p"] || cmdArgs["port"] || process.env.PORT || 8081;
 
-var cors_proxy = require("yuyaryshev-cors-anywhere");
+const cors_proxy = require("yuyaryshev-cors-anywhere");
 cors_proxy
     .createServer({
         originWhitelist: [], // Allow all origins
@@ -29,13 +27,19 @@ cors_proxy
             const reqCopy = { ...req };
             const deletedProps = [];
             for (const k in reqCopy) {
-                if (typeof reqCopy[k] === "symbol" || k.startsWith("_") || k.startsWith("corsAnywhere") || reqCopy[k]?.constructor?.name === "Socket" ) {
+                if (typeof k === "symbol" || k.startsWith("_") || k.startsWith("corsAnywhere") || reqCopy[k]?.constructor?.name === "Socket" ) {
                     delete reqCopy[k];
                   deletedProps.push(k)
                 }
             }
 
-            console.log(`req=`, JSON.stringify(reqCopy, undefined, "    "));
+            reqCopy.headers = {}
+            for(let i=0;i<reqCopy.rawHeaders.length;i+=2) {
+                reqCopy.headers[reqCopy.rawHeaders[2*i]] = reqCopy.rawHeaders[2*i+1];
+            }
+            delete reqCopy.rawHeaders;
+
+            console.log((new Date().toISOString()),"\n",JSON.stringify(reqCopy, undefined, "    "),"\n\n\n");
         },
     })
     .listen(port, host, function () {

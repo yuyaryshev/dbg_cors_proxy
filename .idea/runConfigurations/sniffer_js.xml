@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="sniffer.js" type="NodeJSConfigurationType" application-parameters="-p 8081 -t jira.moscow.alfaintra.net" nameIsGenerated="true" path-to-js-file="sniffer.js" working-dir="$PROJECT_DIR$">
+    <method v="2" />
+  </configuration>
+</component>
