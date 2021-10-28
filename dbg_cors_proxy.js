@@ -1,7 +1,10 @@
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || "0.0.0.0";
 // Listen on a specific port via the PORT environment variable
-var port = process.env.PORT || 8081;
+const argsCopy = [...process.argv];
+const maybePort = argsCopy.pop();
+const maybePortSpecifier = argsCopy.pop();
+var port = ["-p","-port"].includes(maybePortSpecifier)? +maybePort: process.env.PORT || 8081;
 
 var cors_proxy = require("yuyaryshev-cors-anywhere");
 cors_proxy
@@ -36,7 +39,7 @@ cors_proxy
         },
     })
     .listen(port, host, function () {
-        console.log("Running CORS Anywhere on " + host + ":" + port);
+        console.log("Running Debug CORS Anywhere on " + host + ":" + port);
     });
 
 // POST /http://jira.moscow.alfaintra.net:80/rest/api/2/issue HTTP/1.1
