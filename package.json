@@ -1,0 +1,20 @@
+{
+  "name": "dbg_cors_proxy",
+  "version": "1.0.0",
+  "description": "Personal proxy for debugging purposes: catches and dumps all requests going throuh it, also removes CORS.",
+  "main": "dbg_cors_proxy.js",
+  "scripts": {
+    "start": "dbg_cors_proxy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuyaryshev/dbg_cors_proxy.git"
+  },
+  "keywords": [],
+  "author": "Yuri Yaryshev",
+  "license": "The Unlicense",
+  "bugs": {
+    "url": "https://github.com/yuyaryshev/dbg_cors_proxy/issues"
+  },
+  "homepage": "https://github.com/yuyaryshev/dbg_cors_proxy#readme"
+}
